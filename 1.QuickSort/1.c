@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void qs(int arr[], int left, int right) {
+void q(int arr[], int left, int right) {
     // 对前闭后开区间 [left, right) 排序
     int n, pivot;
     int i, j;
@@ -57,8 +57,8 @@ void qs(int arr[], int left, int right) {
         n = lb - 1;
     arr[n] = pivot;
     // 递归处理
-    qs(arr, left, n);
-    qs(arr, n + 1, right);
+    q(arr, left, n);
+    q(arr, n + 1, right);
 }
 
 #define FUNC quicksort
