@@ -11,6 +11,12 @@
                 "kind": "test",
                 "isDefault": true
             }
+        },
+        {
+            "label": "make clean",
+            "type": "shell",
+            "command": "cd /d \"${workspaceFolder}\" && make clean",
+            "group": "test"
         }
     ]
 }
