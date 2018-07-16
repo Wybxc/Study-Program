@@ -11,6 +11,6 @@ int main(int argc, char* argv[]) {
         cout << output[i] << ',';
     }
     cout << output[count - 1]  << ']' << endl;
-    pause;
+    pause_cin;
     return 0;
 }

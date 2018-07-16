@@ -9,7 +9,7 @@ int get_ints(int output[]);
 
 #define clear_cin cin.ignore(INT_MAX, '\n')
 
-#define pause      \
+#define pause_cin      \
     do {           \
         clear_cin; \
         cin.get(); \
