@@ -45,7 +45,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\msys32\\mingw32\\i686-w64-mingw32\\include",
+                "C:/msys32/mingw32/include/c++/7.3.0",
+                "C:/msys32/mingw32/gcc/i686-w64-mingw32/7.3.0/include",
                 "${workspaceFolder}"
             ],
             "defines": [
@@ -53,7 +54,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "msvc-x64",
+            "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
                     "${workspaceFolder}"
