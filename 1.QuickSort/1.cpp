@@ -69,7 +69,7 @@ void q(int arr[], int left, int right) {
 
 #define FUNC quicksort
 int quicksort(int arr[], int n) {
-    qs(arr, 0, n);
+    q(arr, 0, n);
     return n;
 }
 
