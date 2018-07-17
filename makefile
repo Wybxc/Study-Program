@@ -13,11 +13,11 @@ tools_target := $(tools_source:.cpp=.o)
 
 all: $(target)
 
-$(target): $(shell echo $@ | awk 'gsub(".cpp.exe",".cpp"){print $0}') $(tools_target)
-> $(CC) $< -o $@ $(tools_target) -lstdc++
+$(target): $(source) $(tools_target)
+> $(CC) $(shell echo $@ | awk 'gsub(".cpp.exe",".cpp"){print $0}') -o $@ $(tools_target) -lstdc++
 
 $(tools_target): $(tools_source) $(tools_header)
-> $(CC) -c $< -o $@ -lstdc++
+> $(CC) -c $(shell echo $@ | awk 'gsub(".o",".cpp"){print $0}') -o $@ -lstdc++
 
 clean:
 > rm -rf */*.exe
