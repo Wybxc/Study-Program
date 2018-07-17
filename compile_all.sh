@@ -10,7 +10,7 @@ function buildprograms(){
 }
 
 # 第一步：编译 tools 文件夹
-tools_changed = 0
+let tools_changed = 0
 for source in $(find 'tools/' -name '*.cpp'); do
     header = `echo $source | awk 'gsub(".cpp",".hpp"){print $0}'`
     output = `echo $source | awk 'gsub(".cpp",".out"){print $0}'`
@@ -22,7 +22,7 @@ for source in $(find 'tools/' -name '*.cpp'); do
     # 如果输出文件不存在，或者源代码或头文件有变动，重新编译
     buildtools $source $output
     echo Compile: $source -\> $output
-    tools_changed = 1
+    let tools_changed = 1
 done
 
 # 第二步：编译各个程序
