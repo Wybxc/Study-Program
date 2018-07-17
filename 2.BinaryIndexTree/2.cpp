@@ -80,7 +80,20 @@ int main(int argc, char* argv[]) {
         else
             cout << "Wrong Input!" << endl;
     }
-    cout << "The sum of first " << k << " numbers = " << sum(tree, k);
+    cout << "The sum of first " << k << " numbers = " << sum(tree, k) << endl;
+    // 查询区间和
+    int a = INT_MAX, b = INT_MAX;
+    while (true) {
+        cout << " The sum of [a, b) numbers:" << endl;
+        cout << "a = ";
+        cin >> a;
+        cout << "b = ";
+        cin >> b;
+        if (a <= b && b <= count) break;
+        else
+            cout << "Wrong Input!" << endl;
+    }
+    cout << "The sum of [" << a << ", " << b << ") = " << sum(tree, a, b) << endl;
     pause_cin;
     return 0;
 }
