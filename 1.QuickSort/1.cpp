@@ -87,6 +87,7 @@ int main(int argc, char *argv[]) {
     int st;
     int output[LEN >> 2];
     int k = 0;
+    printf("Quick Sort\n");
     printf("Please input an array:\n");
     fgets(input, LEN, stdin);
     // 开始分析输入数据

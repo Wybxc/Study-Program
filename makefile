@@ -13,7 +13,7 @@ tools_target := $(tools_source:.cpp=.o)
 
 all: $(target)
 
-$(target): $(source) $(tools_target)
+$(target): $(shell echo $@ | sed 's/.cpp.exe/.cpp') $(tools_target)
 > $(CC) $< -o $@ $(tools_target) -lstdc++
 
 $(tools_target): $(tools_source) $(tools_header)
