@@ -6,17 +6,11 @@
         {
             "label": "make",
             "type": "shell",
-            "command": "cd /d \"${workspaceFolder}\" && make",
+            "command": "shell \"${workspaceFolder}\\compile_all.sh\"",
             "group": {
                 "kind": "test",
                 "isDefault": true
             }
-        },
-        {
-            "label": "make clean",
-            "type": "shell",
-            "command": "cd /d \"${workspaceFolder}\" && make clean",
-            "group": "test"
         }
     ]
 }
