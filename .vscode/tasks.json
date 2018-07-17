@@ -6,7 +6,7 @@
         {
             "label": "make",
             "type": "shell",
-            "command": "shell \"${workspaceFolder}\\compile_all.sh\"",
+            "command": "sh \"${workspaceFolder}\\compile_all.sh\"",
             "group": {
                 "kind": "test",
                 "isDefault": true
