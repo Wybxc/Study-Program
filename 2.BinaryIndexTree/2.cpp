@@ -55,6 +55,12 @@ int sum(int arr[], int n) {
 // 利用树状数组求 [a, b) 的区间和
 int sum(int arr[], int a, int b) { return sum(arr, b - 1) - sum(arr, a - 1); }
 
+// 获取原始数组的元素
+int get(int arr[], int n) {
+    if (n % 2 == 1) return n;
+    else return arr[n] - sum(arr, n-1);
+}
+
 int main(int argc, char* argv[]) {
     cout << "Binary Index Tree" << endl;
     int output[256];
