@@ -42,7 +42,7 @@ using namespace wy;
 // 更新树状数组时，只需要更新节点的每一个父节点
 // 时间复杂度 O(log n)
 void update(int arr[], int count, int i, int value) {
-    for (; i < count; i += lowbit(i)) arr[i] += value;
+    for (; i < count + 1; i += lowbit(i)) arr[i] += value;
 }
 
 // 利用树状数组求前缀和
@@ -59,13 +59,13 @@ int main(int argc, char* argv[]) {
     cout << "Binary Index Tree" << endl;
     int output[256];
     // 获取数组
-    int count = get_ints(output) + 1;
+    int count = get_ints(output);
     // 生成树状数组
     int tree[256];
-    for (int i = 1; i <= count; i++) {
+    for (int i = 1; i <= count; i++) tree[i] = 0; // 初始化
+    for (int i = 1; i <= count; i++) 
         update(tree, count, i, output[i - 1]);
-    }
-    cout << "BIT build finished：" << endl;
+    cout << "BIT build finished:" << endl;
     cout << '[';
     for (int i = 1; i <= count - 1; i++){
         cout << tree[i] << ',';

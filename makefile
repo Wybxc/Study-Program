@@ -7,7 +7,7 @@ target := $(source:.cpp=.cpp.exe)
 
 tools_source := $(shell find tools -name '*.cpp')
 tools_header := $(shell find tools -name '*.hpp')
-tools_target := $(tools_source:.cpp=.o)
+tools_target := $(tools_source:.cpp=.out)
 
 .PHONY: all clean
 
@@ -17,7 +17,7 @@ $(target): $(source) $(tools_target)
 > $(CC) $(shell echo $@ | awk 'gsub(".cpp.exe",".cpp"){print $0}') -o $@ $(tools_target) -lstdc++
 
 $(tools_target): $(tools_source) $(tools_header)
-> $(CC) -c $(shell echo $@ | awk 'gsub(".o",".cpp"){print $0}') -o $@ -lstdc++
+> $(CC) -c $(shell echo $@ | awk 'gsub(".out",".cpp"){print $0}') -o $@ -lstdc++
 
 clean:
 > rm -rf */*.exe

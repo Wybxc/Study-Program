@@ -21,16 +21,13 @@ int get_ints(int output[]) {
         while (i < count) {  // 遍历字符串
             char c = input[i];
             if ((c != ']') && (c != ',') && ((c < '0') || ('9' < c))) break;
-            if (st == 0) {                       // 接受数字
-                if (('0' <= c) && ('9' >= c)) {  // 如果是数字
-                    st = 0;
+            if (st == 0) {                     // 接受数字
+                if (('0' <= c) && ('9' >= c))  // 如果是数字
                     i++;
-                } else if (c == ',') {  // 逗号
+                else if (c == ',')  // 逗号
                     st = 1;
-                } else if (isspace(c)) {  // 空白符
-                    st = 1;
+                else if (isspace(c))  // 空白符
                     i++;
-                }
             } else if (st == 1) {  // 接受分隔符中
                 if (c == ',') {
                     // 数字储存在前开后闭区间[j,i)中
