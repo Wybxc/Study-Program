@@ -1,4 +1,5 @@
 #include "../tools/getin.hpp"
+#include "../tools/printing.hpp"
 
 using namespace std;
 using namespace wy;
@@ -57,8 +58,10 @@ int sum(int arr[], int a, int b) { return sum(arr, b - 1) - sum(arr, a - 1); }
 
 // 获取原始数组的元素
 int get(int arr[], int n) {
-    if (n % 2 == 1) return n;
-    else return arr[n] - sum(arr, n-1);
+    if (n % 2 == 1)
+        return n;
+    else
+        return arr[n] - sum(arr, n - 1);
 }
 
 int main(int argc, char* argv[]) {
@@ -71,18 +74,15 @@ int main(int argc, char* argv[]) {
     for (int i = 1; i <= count; i++) tree[i] = 0;  // 初始化
     for (int i = 1; i <= count; i++) update(tree, count, i, output[i - 1]);
     cout << "BIT build finished:" << endl;
-    cout << '[';
-    for (int i = 1; i <= count - 1; i++) {
-        cout << tree[i] << ',';
-    }
-    cout << tree[count] << ']' << endl;
+    print_arr(tree, 1, count + 1);
     // 查询前缀和
     int k = INT_MAX;
     while (true) {
         cout << " The sum of first k numbers:" << endl;
         cout << "k = ";
         cin >> k;
-        if (k <= count) break;
+        if (k <= count)
+            break;
         else
             cout << "Wrong Input!" << endl;
     }
@@ -95,11 +95,13 @@ int main(int argc, char* argv[]) {
         cin >> a;
         cout << "b = ";
         cin >> b;
-        if (a <= b && b <= count) break;
+        if (a <= b && b <= count)
+            break;
         else
             cout << "Wrong Input!" << endl;
     }
-    cout << "The sum of [" << a << ", " << b << ") = " << sum(tree, a, b) << endl;
+    cout << "The sum of [" << a << ", " << b << ") = " << sum(tree, a, b)
+         << endl;
     pause_cin;
     return 0;
 }
