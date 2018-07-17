@@ -62,15 +62,25 @@ int main(int argc, char* argv[]) {
     int count = get_ints(output);
     // 生成树状数组
     int tree[256];
-    for (int i = 1; i <= count; i++) tree[i] = 0; // 初始化
-    for (int i = 1; i <= count; i++) 
-        update(tree, count, i, output[i - 1]);
+    for (int i = 1; i <= count; i++) tree[i] = 0;  // 初始化
+    for (int i = 1; i <= count; i++) update(tree, count, i, output[i - 1]);
     cout << "BIT build finished:" << endl;
     cout << '[';
-    for (int i = 1; i <= count - 1; i++){
+    for (int i = 1; i <= count - 1; i++) {
         cout << tree[i] << ',';
     }
     cout << tree[count] << ']' << endl;
+    // 查询前缀和
+    int k = INT_MAX;
+    while (true) {
+        cout << " The sum of first k numbers:" << endl;
+        cout << "k = ";
+        cin >> k;
+        if (k <= count) break;
+        else
+            cout << "Wrong Input!" << endl;
+    }
+    cout << "The sum of first " << k << " numbers = " << sum(tree, k);
     pause_cin;
     return 0;
 }
